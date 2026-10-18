@@ -1,0 +1,26 @@
+baseURL: https://rcloudh.com/
+languageCode: en-us
+title: Rodrigue | Cloud & DevOps
+theme: PaperMod
+
+params:
+defaultTheme: auto
+homeInfoParams:
+  title: Rodrigue, Cloud & Réseaux
+  Content: > 
+    Etudiant en Master 2 Cloud & Réseaux (ISTIC, Université de Rennes). Infrastructures, Devops, Automatisation, Monitoring. Je documentes ici mes projets, mes connaissances et mes expériences.
+socialIcons:
+  - name: Github
+    url: https://github.com/SleideWilson
+
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/rodrigue-hounkpatin
+
+menu:
+  main:
+    - name: Projets
+      url: /projets/
+      weight: 1
+    - name: A propos
+      url: /a-propos/
+      weight: 2

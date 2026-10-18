@@ -1,0 +1,6 @@
+site/public/
+site/resources/_gen/
+.hugo_build.lock
+infra/.terraform/
+infra/*.tfstate*
+infra/*.tfvars

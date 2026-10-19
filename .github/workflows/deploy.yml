@@ -1,0 +1,44 @@
+name: Deploy site Hugo sur Cloudflare Pages
+
+on:
+    push:
+        branches: ["main"]
+        paths:
+            - "site/**"
+            - ".github/workflows/deploy.yml"
+    
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: deploy-pages
+    cancel-in-progress: true
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Récupérer le code source (avec le thème)
+              uses: actions/checkout@v4
+
+              with:
+                submodules: true
+
+            - name: Installer Hugo
+              uses: peaceiris/actions-hugo@v3
+              with:
+                hugo-version: '0.168.0'
+                extended: true
+
+            - name: Construire le site 
+              working-directory: site
+              run: hugo --minify
+
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages deploy ./site/public --project-name=rcloudh-portfolio --branch=main

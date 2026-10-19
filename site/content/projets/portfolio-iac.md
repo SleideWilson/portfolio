@@ -12,7 +12,7 @@ J'ai réalisé ce projet pour automatiser le déploiement de mon portfolio et g�
 
 ## Architecture
 
-![Flux de déploiement](/images/flux-portfolio.svg)
+![Flux de déploiement](/images/portfolio-iac-flux.png)
 
 Le projet repose sur deux flux distincts :
 

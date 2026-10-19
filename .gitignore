@@ -4,3 +4,6 @@ site/resources/_gen/
 infra/.terraform/
 infra/*.tfstate*
 infra/*.tfvars
+
+
+.env
